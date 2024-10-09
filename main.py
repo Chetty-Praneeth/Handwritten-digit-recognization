@@ -17,12 +17,18 @@ LABELS={0:"ZERP",1:"ONE",2:"TWO",3:"THREE",4:"FOUR",5:"FIVE",6:"SIX",7:"SEVEN",8
 pygame.init()
 
 #FONT= pygame.font.Font("freesansbold.tff", 18)
-pygame.display.set_mode((WINDOWSIZEX, WINDOWSIZEY))
+DISPLAYSURFACE = pygame.display.set_mode((WINDOWSIZEX, WINDOWSIZEY))
 
 pygame.display.set_caption("Digit Board")
 
+iswritting = False
 while True:
     for event in pygame.event.get():
         if event.type==QUIT:
             pygame.quit()
             sys.exit()
+
+        if event.type == MOUSEMOTION and iswritting :
+            xcord, ycord =event.pos
+            pygame.draw.circle(DISPLAYSURFACE, WHITE, (xcord,ycord), 4, 0)
+            
