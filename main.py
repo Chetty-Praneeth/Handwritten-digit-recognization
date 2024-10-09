@@ -22,6 +22,8 @@ DISPLAYSURFACE = pygame.display.set_mode((WINDOWSIZEX, WINDOWSIZEY))
 pygame.display.set_caption("Digit Board")
 
 iswritting = False
+number_xcord= []
+number_ycord= []
 while True:
     for event in pygame.event.get():
         if event.type==QUIT:
@@ -31,4 +33,8 @@ while True:
         if event.type == MOUSEMOTION and iswritting :
             xcord, ycord =event.pos
             pygame.draw.circle(DISPLAYSURFACE, WHITE, (xcord,ycord), 4, 0)
-            
+            number_xcord.append(xcord)
+            number_ycord.append(ycord)
+        if event.type == MOUSEBUTTONDOWN:
+            iswritting = True
+
