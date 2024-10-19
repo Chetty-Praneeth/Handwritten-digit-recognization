@@ -30,8 +30,8 @@ def predict_digit(image_path):
     preprocessed_image = preprocess_image(image_path)
     # Get the prediction from the model
     predictions = model.predict(preprocessed_image)
-    predicted_digit = np.argmax(predictions)  # Get the index of the highest probability
-    return predicted_digit
+    predicted_digit = np.argmax(predictions)
+    return predicted_digit, 
 
 # Example usage with multiple images
 image_paths = [
